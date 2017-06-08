@@ -1,0 +1,316 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4966AD8F1EE96BEB003AA670 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966AD8E1EE96BEB003AA670 /* AppDelegate.swift */; };
+		4966AD911EE96BEB003AA670 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966AD901EE96BEB003AA670 /* ViewController.swift */; };
+		4966AD941EE96BEB003AA670 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4966AD921EE96BEB003AA670 /* Main.storyboard */; };
+		4966AD961EE96BEB003AA670 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4966AD951EE96BEB003AA670 /* Assets.xcassets */; };
+		4966AD991EE96BEB003AA670 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4966AD971EE96BEB003AA670 /* LaunchScreen.storyboard */; };
+		4966ADA11EE97508003AA670 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966ADA01EE97508003AA670 /* Recipe.swift */; };
+		4966ADA31EE98E47003AA670 /* SingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966ADA21EE98E47003AA670 /* SingleViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4966AD8B1EE96BEB003AA670 /* Recetas Cocina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recetas Cocina.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4966AD8E1EE96BEB003AA670 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4966AD901EE96BEB003AA670 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4966AD931EE96BEB003AA670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4966AD951EE96BEB003AA670 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4966AD981EE96BEB003AA670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4966AD9A1EE96BEB003AA670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4966ADA01EE97508003AA670 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		4966ADA21EE98E47003AA670 /* SingleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4966AD881EE96BEB003AA670 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4966AD821EE96BEB003AA670 = {
+			isa = PBXGroup;
+			children = (
+				4966AD8D1EE96BEB003AA670 /* Recetas Cocina */,
+				4966AD8C1EE96BEB003AA670 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4966AD8C1EE96BEB003AA670 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4966AD8B1EE96BEB003AA670 /* Recetas Cocina.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4966AD8D1EE96BEB003AA670 /* Recetas Cocina */ = {
+			isa = PBXGroup;
+			children = (
+				4966ADA01EE97508003AA670 /* Recipe.swift */,
+				4966AD8E1EE96BEB003AA670 /* AppDelegate.swift */,
+				4966AD901EE96BEB003AA670 /* ViewController.swift */,
+				4966ADA21EE98E47003AA670 /* SingleViewController.swift */,
+				4966AD921EE96BEB003AA670 /* Main.storyboard */,
+				4966AD951EE96BEB003AA670 /* Assets.xcassets */,
+				4966AD971EE96BEB003AA670 /* LaunchScreen.storyboard */,
+				4966AD9A1EE96BEB003AA670 /* Info.plist */,
+			);
+			path = "Recetas Cocina";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4966AD8A1EE96BEB003AA670 /* Recetas Cocina */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4966AD9D1EE96BEB003AA670 /* Build configuration list for PBXNativeTarget "Recetas Cocina" */;
+			buildPhases = (
+				4966AD871EE96BEB003AA670 /* Sources */,
+				4966AD881EE96BEB003AA670 /* Frameworks */,
+				4966AD891EE96BEB003AA670 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Recetas Cocina";
+			productName = "Recetas Cocina";
+			productReference = 4966AD8B1EE96BEB003AA670 /* Recetas Cocina.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4966AD831EE96BEB003AA670 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Sergio Arranz Sobrino";
+				TargetAttributes = {
+					4966AD8A1EE96BEB003AA670 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4966AD861EE96BEB003AA670 /* Build configuration list for PBXProject "Recetas Cocina" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4966AD821EE96BEB003AA670;
+			productRefGroup = 4966AD8C1EE96BEB003AA670 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4966AD8A1EE96BEB003AA670 /* Recetas Cocina */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4966AD891EE96BEB003AA670 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4966AD991EE96BEB003AA670 /* LaunchScreen.storyboard in Resources */,
+				4966AD961EE96BEB003AA670 /* Assets.xcassets in Resources */,
+				4966AD941EE96BEB003AA670 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4966AD871EE96BEB003AA670 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4966ADA11EE97508003AA670 /* Recipe.swift in Sources */,
+				4966AD911EE96BEB003AA670 /* ViewController.swift in Sources */,
+				4966ADA31EE98E47003AA670 /* SingleViewController.swift in Sources */,
+				4966AD8F1EE96BEB003AA670 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4966AD921EE96BEB003AA670 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4966AD931EE96BEB003AA670 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4966AD971EE96BEB003AA670 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4966AD981EE96BEB003AA670 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4966AD9B1EE96BEB003AA670 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4966AD9C1EE96BEB003AA670 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4966AD9E1EE96BEB003AA670 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Recetas Cocina/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sergioarranz.Recetas-Cocina";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		4966AD9F1EE96BEB003AA670 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Recetas Cocina/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sergioarranz.Recetas-Cocina";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4966AD861EE96BEB003AA670 /* Build configuration list for PBXProject "Recetas Cocina" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4966AD9B1EE96BEB003AA670 /* Debug */,
+				4966AD9C1EE96BEB003AA670 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4966AD9D1EE96BEB003AA670 /* Build configuration list for PBXNativeTarget "Recetas Cocina" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4966AD9E1EE96BEB003AA670 /* Debug */,
+				4966AD9F1EE96BEB003AA670 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4966AD831EE96BEB003AA670 /* Project object */;
+}
