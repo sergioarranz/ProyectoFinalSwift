@@ -17,9 +17,12 @@ class Recipe: NSObject {
     var ingredients : [String]!
     var steps : [String]!
     
-    init(name: String, image: UIImage) {
-       self.name = name
+    init(name: String, image: UIImage, time: Int, ingredients: [String], steps: [String]) {
+        self.name = name
         self.image = image
+        self.time = time
+        self.ingredients = ingredients
+        self.steps = steps
     }
     
     

@@ -15,16 +15,16 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var recipe = Recipe(name: "Arroz con leche", image: #imageLiteral(resourceName: "arroz"))
+        var recipe = Recipe(name: "Arroz con leche", image: #imageLiteral(resourceName: "arroz"), time: 20, ingredients: ["Patatas", "Huevos", "Cebollas"], steps: ["Pasos para cocinar la tortilla"])
         recipes.append(recipe)
         
-        recipe = Recipe(name: "Tortitas con caramelo", image: #imageLiteral(resourceName: "tortita") )
+        recipe = Recipe(name: "Tortitas con caramelo", image: #imageLiteral(resourceName: "tortita"), time: 10, ingredients: ["Tortitas", "Caramelo"], steps: ["Pasos para cocinar las tortitas"] )
         recipes.append(recipe)
         
-        recipe = Recipe(name: "Estofado de ternera", image: #imageLiteral(resourceName: "estofado"))
+        recipe = Recipe(name: "Estofado de ternera", image: #imageLiteral(resourceName: "estofado"), time: 15, ingredients: ["Estofado", "Ternera"], steps: ["Pasos para cocinar el estofado de ternera"])
         recipes.append(recipe)
         
-        recipe = Recipe(name: "Muslo de pollo", image: #imageLiteral(resourceName: "muslo"))
+        recipe = Recipe(name: "Muslo de pollo", image: #imageLiteral(resourceName: "muslo"), time: 5, ingredients: ["Pollo", "Perejil"], steps: ["Pasos para cocinar un muslo de pollo"])
         recipes.append(recipe)
         
     }
@@ -51,9 +51,12 @@ class ViewController: UITableViewController {
         let recipe = recipes[indexPath.row]
         let cellID = "RecipeCell"
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-        cell.textLabel?.text = recipe.name
-        cell.imageView?.image = recipe.image
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! RecipeCell
+        cell.thumbnailRecipe.image = recipe.image
+        cell.lblName.text = recipe.name
+        cell.lblTime.text = "\(recipe.time) min"
+        cell.lblIngredients.text = "Ingredientes: \(recipe.ingredients.count)"
+        
         return cell
     }
     
