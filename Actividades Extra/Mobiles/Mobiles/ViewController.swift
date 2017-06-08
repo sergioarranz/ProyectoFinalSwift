@@ -51,17 +51,22 @@ class ViewController: UIViewController {
         
         myPhone = box[phoneID]
         
-        if myPhone.image != nil {
-            self.imgPhone.image = myPhone.image
-        } else {
-            self.imgPhone.image = nil
+        UIView.animate(withDuration: 1.5, delay: 0.25, options: [.curveLinear,.allowUserInteraction], animations: {
+            if self.myPhone.image != nil {
+                self.imgPhone.image = self.myPhone.image
+            } else {
+                self.imgPhone.image = nil
+            }
+            
+            self.lblPhoneName.text = "\(self.myPhone.brand!) \(self.myPhone.model!)"
+            self.lblRam.text = "Memoria RAM : \(self.myPhone.ram!) GB - MB: \(self.myPhone.GbtoMb())"
+            self.lblBattery.text = "Batería : \(self.myPhone.battery!) kWs"
+            
+            self.view.backgroundColor = self.myPhone.color
+        }) { (completed) in
+            print("Es táctil: \(Phone.isTactil())")
         }
         
-        self.lblPhoneName.text = "\(myPhone.brand!) \(myPhone.model!)"
-        self.lblRam.text = "Memoria RAM : \(myPhone.ram!) GB"
-        self.lblBattery.text = "Batería : \(myPhone.battery!) kWs"
-
-        self.view.backgroundColor = myPhone.color
     }
 
     @IBAction func changePhone(_ sender: UIButton) {
@@ -70,6 +75,15 @@ class ViewController: UIViewController {
             phoneID = 0
         }
         
+        updateView()
+    }
+    @IBAction func powerOnPressed(_ sender: UIButton) {
+        self.myPhone.powerOn()
+    }
+    
+    
+    @IBAction func add1Gb(_ sender: UIButton) {
+        self.myPhone.addRam(GbToAdd: 1)
         updateView()
     }
 

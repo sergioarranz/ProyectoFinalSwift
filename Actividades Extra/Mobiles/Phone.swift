@@ -44,5 +44,20 @@ class Phone: NSObject {
         }
     }
     
+    func addRam(GbToAdd: Int!) {
+        self.ram = self.ram + GbToAdd
+    }
+    
+    func powerOn() {
+        print("El móvil \(brand!) \(model!) se ha encendido correctamente")
+    }
+    
+    class func isTactil() -> Bool {
+        return true
+    }
+    
+    func GbtoMb() -> Int {
+        return 1024 * self.ram
+    }
     
 }
