@@ -63,7 +63,40 @@ extension SingleViewController : UITableViewDataSource {
         cell.lblTime.text = "\(recipe.time!) min"
         cell.lblIngredients.text = "Ingredientes: \(recipe.ingredients.count)"
         
+        if recipe.isFavourite {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
         return cell
     }
 
+}
+
+extension SingleViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let recipe = self.recipes[indexPath.row]
+        let alertController = UIAlertController(title: recipe.name, message: "Valora este plato", preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        var favouriteActionTitle = "Favorito"
+        var favouriteActionStyle = UIAlertActionStyle.default
+        if recipe.isFavourite {
+            favouriteActionTitle = "No favorito"
+            favouriteActionStyle = UIAlertActionStyle.destructive
+
+        }
+        
+        let favouriteAction = UIAlertAction(title: favouriteActionTitle, style: favouriteActionStyle) { (action) in
+            let recipe = self.recipes[indexPath.row]
+            recipe.isFavourite = !recipe.isFavourite
+            self.tableView.reloadData()
+        }
+        alertController.addAction(favouriteAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
 }

@@ -14,7 +14,6 @@
         <!--Table View Controller-->
         <scene sceneID="Fex-jx-44q">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HWu-lV-mcJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="rNk-dh-A6I" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="QE6-nX-uCb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -36,6 +35,7 @@
                         </connections>
                     </tableView>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HWu-lV-mcJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1" y="278"/>
         </scene>
@@ -63,11 +63,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tpe-xO-VfB">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tpe-xO-VfB">
                                                     <rect key="frame" x="14" y="8" width="88" height="83"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Tpe-xO-VfB" secondAttribute="height" multiplier="88:83" id="owS-iq-dPF"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="42"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Idu-hX-ti4">
                                                     <rect key="frame" x="122" y="16" width="225" height="67.5"/>
