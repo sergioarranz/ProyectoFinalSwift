@@ -70,6 +70,16 @@ extension SingleViewController : UITableViewDataSource {
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            self.recipes.remove(at: indexPath.row)
+            
+        }
+        
+        self.tableView.deleteRows(at: [indexPath], with: .fade)
+    }
 
 }
 
