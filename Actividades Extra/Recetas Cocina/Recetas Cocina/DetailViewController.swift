@@ -11,16 +11,28 @@ import UIKit
 class DetailViewController: UIViewController {
 
     
-    @IBOutlet var recipeName: UILabel!
     @IBOutlet var recipeImageView: UIImageView!
+    @IBOutlet var tableView: UITableView!
     
     var recipe : Recipe!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.recipeName.text = self.recipe.name
+        self.title = self.recipe.name
         self.recipeImageView.image = self.recipe.image
+        self.tableView.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.25)
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+       self.tableView.separatorColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.75)
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 
 }
@@ -46,6 +58,8 @@ extension DetailViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailRecipeCell", for: indexPath) as! RecipeDetailViewCell
+        
+        cell.backgroundColor = UIColor.clear
         
         switch indexPath.section {
         case 0:
