@@ -17,7 +17,8 @@ class SingleViewController: UIViewController {
         super.viewDidLoad()
         
         /*self.tableView.dataSource = self
-        self.tableView.delegate = self*/
+        self.tableView.delegate = self
+        (Lo mismo que linkarlos desde el main story board)*/
         
         var recipe = Recipe(name: "Arroz con leche", image: #imageLiteral(resourceName: "arroz"), time: 20, ingredients: ["Patatas", "Huevos", "Cebollas"], steps: ["Pasos para cocinar la tortilla"])
         recipes.append(recipe)
@@ -63,6 +64,7 @@ extension SingleViewController : UITableViewDataSource {
         cell.lblTime.text = "\(recipe.time!) min"
         cell.lblIngredients.text = "Ingredientes: \(recipe.ingredients.count)"
         
+        // Pintar check en caso de que el plato sea favorito
         if recipe.isFavourite {
             cell.accessoryType = .checkmark
         } else {
@@ -70,7 +72,7 @@ extension SingleViewController : UITableViewDataSource {
         }
         return cell
     }
-    
+    /* Borrar celdas por defecto antes de usar UIActivityViewControllers
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
@@ -80,10 +82,37 @@ extension SingleViewController : UITableViewDataSource {
         
         self.tableView.deleteRows(at: [indexPath], with: .fade)
     }
+     */
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let shareAction =  UITableViewRowAction(style: .default, title: "Compartir") { (action, indexPath) in
+            
+        // Compartir
+            let shareDefaultText = "Estoy mirando la receta de \(self.recipes[indexPath.row].name!) en la App de recetas de cocina"
+            
+            let activityController = UIActivityViewController(activityItems: [shareDefaultText, self.recipes[indexPath.row].image!], applicationActivities: nil)
+            self.present(activityController, animated: true, completion: nil)
+        }
+        
+        shareAction.backgroundColor = UIColor(colorLiteralRed: 30.0/255.0, green: 164.0/255.0, blue: 253.0/255.0, alpha: 1.0)
+        
+        // Borrar
+            let deleteAction =  UITableViewRowAction(style: .default, title: "Borrar") { (action, indexPath) in
+            
+            self.recipes.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+        deleteAction.backgroundColor = UIColor(colorLiteralRed: 202.0/255.0, green: 202.0/255.0, blue: 202.0/255.0, alpha: 1.0)
+        
+        return [shareAction, deleteAction]
+    }
 
 }
 
 extension SingleViewController : UITableViewDelegate {
+    
+    // Desplegar actionSheet al pulsar sobre una celda de la tabla
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let recipe = self.recipes[indexPath.row]
@@ -91,6 +120,7 @@ extension SingleViewController : UITableViewDelegate {
         let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         
+        // Mostrar distintos tipos de mensajes y alertas en caso de plato favorito/no favorito
         var favouriteActionTitle = "Favorito"
         var favouriteActionStyle = UIAlertActionStyle.default
         if recipe.isFavourite {
@@ -98,7 +128,7 @@ extension SingleViewController : UITableViewDelegate {
             favouriteActionStyle = UIAlertActionStyle.destructive
 
         }
-        
+        // Creación de la alerta y display en pantalla de la misma
         let favouriteAction = UIAlertAction(title: favouriteActionTitle, style: favouriteActionStyle) { (action) in
             let recipe = self.recipes[indexPath.row]
             recipe.isFavourite = !recipe.isFavourite
