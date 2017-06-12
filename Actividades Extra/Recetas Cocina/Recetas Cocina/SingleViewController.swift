@@ -111,11 +111,10 @@ extension SingleViewController : UITableViewDataSource {
 }
 
 extension SingleViewController : UITableViewDelegate {
-    
-    // Desplegar actionSheet al pulsar sobre una celda de la tabla
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let recipe = self.recipes[indexPath.row]
+        /*let recipe = self.recipes[indexPath.row]
         let alertController = UIAlertController(title: recipe.name, message: "Valora este plato", preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
@@ -136,7 +135,18 @@ extension SingleViewController : UITableViewDelegate {
         }
         alertController.addAction(favouriteAction)
         
-        self.present(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)*/
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if segue.identifier == "showRecipeDetail" {
+            
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let selectedRecipe = self.recipes[indexPath.row]
+                let destinationViewController = segue.destination as! DetailViewController
+                destinationViewController.recipe = selectedRecipe
+            }
+        }
     }
 }
