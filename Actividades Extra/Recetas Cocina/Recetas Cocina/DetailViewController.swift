@@ -22,7 +22,10 @@ class DetailViewController: UIViewController {
         self.recipeImageView.image = self.recipe.image
         self.tableView.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.25)
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
-       self.tableView.separatorColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.75)
+        self.tableView.separatorColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.75)
+        
+        self.tableView.estimatedRowHeight = 44.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     
@@ -33,6 +36,10 @@ class DetailViewController: UIViewController {
     }
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    @IBAction func close(segue: UIStoryboardSegue){
+        
     }
 
 }

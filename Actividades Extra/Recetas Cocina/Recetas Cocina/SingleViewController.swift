@@ -17,6 +17,7 @@ class SingleViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        
         /*self.tableView.dataSource = self
         self.tableView.delegate = self
         (Lo mismo que linkarlos desde el main story board)*/
