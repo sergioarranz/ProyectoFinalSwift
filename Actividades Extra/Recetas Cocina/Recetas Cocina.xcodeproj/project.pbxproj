@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		492B0C611EEEAF1200278B14 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492B0C601EEEAF1200278B14 /* DetailViewController.swift */; };
+		492B0C631EEEC72300278B14 /* RecipeDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492B0C621EEEC72300278B14 /* RecipeDetailViewCell.swift */; };
 		493EC2FD1EE9961400356B55 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493EC2FC1EE9961400356B55 /* RecipeCell.swift */; };
 		4966AD8F1EE96BEB003AA670 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966AD8E1EE96BEB003AA670 /* AppDelegate.swift */; };
 		4966AD911EE96BEB003AA670 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966AD901EE96BEB003AA670 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		492B0C601EEEAF1200278B14 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		492B0C621EEEC72300278B14 /* RecipeDetailViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewCell.swift; sourceTree = "<group>"; };
 		493EC2FC1EE9961400356B55 /* RecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		4966AD8B1EE96BEB003AA670 /* Recetas Cocina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recetas Cocina.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4966AD8E1EE96BEB003AA670 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				4966AD901EE96BEB003AA670 /* ViewController.swift */,
 				4966ADA21EE98E47003AA670 /* SingleViewController.swift */,
 				4966AD921EE96BEB003AA670 /* Main.storyboard */,
+				492B0C621EEEC72300278B14 /* RecipeDetailViewCell.swift */,
 				492B0C601EEEAF1200278B14 /* DetailViewController.swift */,
 				493EC2FC1EE9961400356B55 /* RecipeCell.swift */,
 				4966AD951EE96BEB003AA670 /* Assets.xcassets */,
@@ -154,6 +157,7 @@
 				492B0C611EEEAF1200278B14 /* DetailViewController.swift in Sources */,
 				4966ADA31EE98E47003AA670 /* SingleViewController.swift in Sources */,
 				4966AD8F1EE96BEB003AA670 /* AppDelegate.swift in Sources */,
+				492B0C631EEEC72300278B14 /* RecipeDetailViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
