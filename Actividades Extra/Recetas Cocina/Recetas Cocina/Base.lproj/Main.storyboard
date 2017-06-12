@@ -227,6 +227,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ratingButton" destination="SD0-v7-nb9" id="Pnt-DH-Pjs"/>
                         <outlet property="recipeImageView" destination="MnF-tX-awj" id="2XE-Is-atC"/>
                         <outlet property="tableView" destination="waf-LR-erJ" id="TbO-ZI-BzL"/>
                     </connections>
@@ -259,23 +260,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="EDc-89-RmS">
                                 <rect key="frame" x="62" y="83.5" width="250" height="70"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqz-bk-vcc">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSA-aR-2nb">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                        <color key="backgroundColor" red="0.72336632010000002" green="0.63849688400000004" blue="0.23445748559999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="70" id="1MH-m3-6lC"/>
-                                            <constraint firstAttribute="height" constant="70" id="65i-sT-Gwv"/>
-                                        </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="dislike"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="35"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSA-aR-2nb">
-                                        <rect key="frame" x="90" y="0.0" width="70" height="70"/>
                                         <color key="backgroundColor" red="0.72336632010000002" green="0.63849688400000004" blue="0.23445748559999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="Gjd-bk-mtZ"/>
@@ -288,8 +274,29 @@
                                                 <integer key="value" value="35"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="ratingPressed:" destination="p4k-6N-efT" eventType="touchUpInside" id="0Gv-jF-xPC"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQ0-Gv-zBf">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqz-bk-vcc">
+                                        <rect key="frame" x="90" y="0.0" width="70" height="70"/>
+                                        <color key="backgroundColor" red="0.72336632010000002" green="0.63849688400000004" blue="0.23445748559999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="1MH-m3-6lC"/>
+                                            <constraint firstAttribute="height" constant="70" id="65i-sT-Gwv"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="dislike"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="35"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="ratingPressed:" destination="p4k-6N-efT" eventType="touchUpInside" id="9QD-Vc-UWC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQ0-Gv-zBf">
                                         <rect key="frame" x="180" y="0.0" width="70" height="70"/>
                                         <color key="backgroundColor" red="0.72336632010000002" green="0.63849688400000004" blue="0.23445748559999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -303,6 +310,9 @@
                                                 <integer key="value" value="35"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="ratingPressed:" destination="p4k-6N-efT" eventType="touchUpInside" id="hA4-yK-kof"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -318,7 +328,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="gIa-6Q-dSR" kind="unwind" unwindAction="closeWithSegue:" id="INy-gr-ASZ"/>
+                                    <segue destination="gIa-6Q-dSR" kind="unwind" identifier="unwindToDetailView" unwindAction="closeWithSegue:" id="INy-gr-ASZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -337,7 +347,10 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="beG-x6-XHR" id="pSP-Gb-LcN"/>
+                        <outlet property="firstButton" destination="fSA-aR-2nb" id="neI-Z2-CM3"/>
                         <outlet property="ratingStackView" destination="EDc-89-RmS" id="Txc-Ki-744"/>
+                        <outlet property="secondButton" destination="cqz-bk-vcc" id="0f5-rm-8so"/>
+                        <outlet property="thirdButton" destination="NQ0-Gv-zBf" id="eJU-Iq-0jb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sj3-Eu-3Rb" userLabel="First Responder" sceneMemberID="firstResponder"/>

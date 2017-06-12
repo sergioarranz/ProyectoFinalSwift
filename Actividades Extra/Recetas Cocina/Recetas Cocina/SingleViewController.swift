@@ -69,13 +69,7 @@ extension SingleViewController : UITableViewDataSource {
         cell.lblName.text = recipe.name
         cell.lblTime.text = "\(recipe.time!) min"
         cell.lblIngredients.text = "Ingredientes: \(recipe.ingredients.count)"
-        
-        // Pintar check en caso de que el plato sea favorito
-        if recipe.isFavourite {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
+
         return cell
     }
     /* Borrar celdas por defecto antes de usar UIActivityViewControllers

@@ -13,6 +13,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet var recipeImageView: UIImageView!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var ratingButton: UIButton!
     
     var recipe : Recipe!
     
@@ -26,6 +27,8 @@ class DetailViewController: UIViewController {
         
         self.tableView.estimatedRowHeight = 44.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+        self.ratingButton.setImage(UIImage(named: self.recipe.rating), for: .normal)
     }
     
     
@@ -40,8 +43,16 @@ class DetailViewController: UIViewController {
     
     @IBAction func close(segue: UIStoryboardSegue){
         
+        if let reviewVC = segue.source as? Review{
+        
+        if let rating = reviewVC.ratingSelected {
+            self.recipe.rating = rating
+            self.ratingButton.setImage(UIImage(named: self.recipe.rating), for: .normal)
+        }
+    
     }
 
+}
 }
 
 
@@ -53,7 +64,7 @@ extension DetailViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 3
+            return 2
         case 1:
             return self.recipe.ingredients.count
         case 2:
@@ -77,13 +88,6 @@ extension DetailViewController : UITableViewDataSource {
             case 1:
                 cell.keyLabel.text = "Tiempo: "
                 cell.valueLabel.text = "\(self.recipe.time!) min"
-            case 2:
-                cell.keyLabel.text = "Favorita: "
-                if self.recipe.isFavourite {
-                    cell.valueLabel.text = "Si"
-                } else {
-                    cell.valueLabel.text = "No"
-                }
             default:
                 break
             }
