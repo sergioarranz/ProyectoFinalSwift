@@ -12,7 +12,8 @@ import Speech
 class ViewController: UIViewController {
 
     @IBOutlet var textView: UITextView!
-    var audioRecordingSession = AVAudioSession!.self
+    var recordingSession: AVAudioSession!
+    let audioFileName : String = "audio-recordered.m4a"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +51,26 @@ class ViewController: UIViewController {
     }
     
     func recordingAudioSetup() {
-        //audioRecordingSession = AVAudioSession.sharedInstance()
+        recordingSession = AVAudioSession.sharedInstance()
+        
+        do {
+            try recordingSession.setCategory(AVAudioSessionCategoryRecord)
+            try recordingSession.setActive(true)
+            
+            recordingSession.requestRecordPermission({[unowned self] (allowed:Bool) in
+                if allowed {
+                    
+                } else {
+                    print("Necesito permisos para usar el micrófono")
+                }
+            })
+        } catch {
+            print("Ha habido un error al configurar el audio recorder")
+        }
+        
+    }
+    
+    func directoryURL() -> NSURL? {
         
     }
 }

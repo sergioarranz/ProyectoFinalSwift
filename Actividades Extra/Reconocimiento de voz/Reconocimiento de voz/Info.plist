@@ -4,6 +4,8 @@
 <dict>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>Hola, queremos analizar el audio de Quiros</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Permitenos grabar audio de tu micrófono</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
