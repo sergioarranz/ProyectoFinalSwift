@@ -16,19 +16,21 @@ import MobileCoreServices
 
 private let reuseIdentifier = "cell"
 
-class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVAudioRecorderDelegate {
+class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVAudioRecorderDelegate, UISearchBarDelegate {
     
     var memories : [URL] = [] // Array de objetos de tipo URL guardar las posiciones de los Recuerdos
-    
+    var filteredMemories : [URL] = []
     var currentMemory : URL!
-
+    
     var audioPlayer : AVAudioPlayer?
     var audioRecorder: AVAudioRecorder?
     var recordingURL : URL!
     
+    var searchQuery : CSSearchQuery?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.recordingURL = try? getDocumentsDirectory().appendingPathComponent("memory-recording.m4a")
         
         
@@ -37,10 +39,10 @@ class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINav
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addImagePressed))
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Register cell classes
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -49,7 +51,7 @@ class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINav
         // Recomendable hacer transiciones como esta entre ViewControllers aquí y no antes de que se cargue la vista (viewDidLoad) puesto que da problemas a nivel de compilador.
         self.checkForGrantedPermissions()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -89,7 +91,7 @@ class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINav
                 
             }
         }
-        
+        filteredMemories = memories
         collectionView?.reloadSections(IndexSet(integer: 1)) // Recarga la sección en el Index 1 puesto que la sección 0 es el SearchBar
     }
     
@@ -144,10 +146,10 @@ class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINav
         
         
     }
-
+    
     func resizeImage(image: UIImage, to width: CGFloat) -> UIImage? {
-            let scaleFactor = width / image.size.width // Disminuyo anchura
-            let height = image.size.height * scaleFactor // Disminuyo altura a partir de la escala de la anchura
+        let scaleFactor = width / image.size.width // Disminuyo anchura
+        let height = image.size.height * scaleFactor // Disminuyo altura a partir de la escala de la anchura
         
         UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: height), false, 0) // Redimensiona imágen con anchura y altura que nos llega por parámetro y con la escala manual que hemos definido anteriormente
         image.draw(in: CGRect(x: 0, y: 0, width: width, height: height)) // Dibuja en un rectángulo la imágen original con with y height por parámetro
@@ -175,37 +177,37 @@ class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINav
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using [segue destinationViewController].
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
     // MARK: UICollectionViewDataSource
-
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 2
     }
-
-
+    
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         if section == 0 {
             return 0
         } else {
-            return self.memories.count
+            return self.filteredMemories.count
         }
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ImageCell
-    
-        let memory = self.memories[indexPath.row]
+        
+        let memory = self.filteredMemories[indexPath.row]
         let memoryName = self.thumbnailURL(for: memory).path
         let image = UIImage(contentsOfFile: memoryName)
         cell.imageView.image = image
@@ -229,7 +231,7 @@ class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINav
             let cell = sender.view as! ImageCell
             
             if let index = collectionView?.indexPath(for: cell) {
-                self.currentMemory = self.memories[index.row]
+                self.currentMemory = self.filteredMemories[index.row]
                 
                 self.startRecordingMemory()
             }
@@ -367,7 +369,7 @@ class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINav
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let memory = self.memories[indexPath.row]
+        let memory = self.filteredMemories[indexPath.row]
         
         let fileManager = FileManager.default
         
@@ -388,36 +390,88 @@ class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINav
             print("Error al cargar el audio para reproducir")
         }
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    
+    func filterMemories(text: String){
+        
+        guard text.characters.count > 0 else {
+            self.filteredMemories = self.memories
+            
+            UIView.performWithoutAnimation {
+                collectionView?.reloadSections(IndexSet(integer: 1))
+            }
+            
+            return
+        }
+        
+        
+        var allTheItems : [CSSearchableItem] = []
+        
+        searchQuery?.cancel()
+        
+        let queryString = "contentDescription == \"*\(text)*\"c"
+        self.searchQuery = CSSearchQuery(queryString: queryString, attributes: nil)
+        self.searchQuery?.foundItemsHandler = { items in
+            allTheItems.append(contentsOf: items)
+        }
+        self.searchQuery?.completionHandler = { error in
+            DispatchQueue.main.async { [unowned self] in
+                self.activateFilter(matches: allTheItems)
+            }
+        }
+        self.searchQuery?.start()
     }
-    */
-
+    
+    func activateFilter(matches: [CSSearchableItem]) {
+        
+        self.filteredMemories = matches.map { (item) in
+            let uniqueID = item.uniqueIdentifier
+            let url = URL(fileURLWithPath: uniqueID)
+            return url
+        }
+        
+        UIView.performWithoutAnimation {
+            collectionView?.reloadSections(IndexSet(integer: 1))
+        }
+        
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filterMemories(text: searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    // MARK: UICollectionViewDelegate
+    
+    /*
+     // Uncomment this method to specify if the specified item should be highlighted during tracking
+     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+     return true
+     }
+     */
+    
+    /*
+     // Uncomment this method to specify if the specified item should be selected
+     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+     return true
+     }
+     */
+    
+    /*
+     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
+     override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
+     return false
+     }
+     
+     override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+     return false
+     }
+     
+     override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
+     
+     }
+     */
+    
 }
