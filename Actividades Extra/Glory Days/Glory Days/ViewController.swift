@@ -12,7 +12,6 @@ import AVFoundation
 import Photos
 import Speech
 
-
 class ViewController: UIViewController {
 
     @IBOutlet var InfoLabel: UILabel!

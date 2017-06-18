@@ -11,6 +11,9 @@ import AVFoundation
 import Photos
 import Speech
 
+import CoreSpotlight
+import MobileCoreServices
+
 private let reuseIdentifier = "cell"
 
 class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVAudioRecorderDelegate {
@@ -19,6 +22,7 @@ class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINav
     
     var currentMemory : URL!
 
+    var audioPlayer : AVAudioPlayer?
     var audioRecorder: AVAudioRecorder?
     var recordingURL : URL!
     
@@ -238,6 +242,8 @@ class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINav
     
     func startRecordingMemory(){
         
+        audioPlayer?.stop()
+        
         collectionView?.backgroundColor = UIColor(red: 0.6, green: 0.0, blue: 0.0, alpha: 1.0)
         
         let recordingSession = AVAudioSession.sharedInstance()
@@ -299,6 +305,52 @@ class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINav
     
     func transcribeAudioToText(memory : URL) {
         
+        let audio = audioURL(for: memory)
+        let transcription = transcriptionURL(for: memory)
+        
+        let recognizer = SFSpeechRecognizer()
+        let request = SFSpeechURLRecognitionRequest(url: audio)
+        
+        recognizer?.recognitionTask(with: request, resultHandler: { [unowned self] (result, error) in
+            
+            guard let result = result else {
+                print("Ha habido el siguiente error: \(error)")
+                return
+            }
+            
+            if result.isFinal {
+                
+                let text = result.bestTranscription.formattedString
+                
+                do {
+                    try text.write(to: transcription, atomically: true, encoding: String.Encoding.utf8)
+                    self.indexMemory(memory: memory, text: text)
+                } catch {
+                    print("Ha habido un error al guardar la transcripción")
+                }
+            }
+            
+            
+        })
+    }
+    
+    func indexMemory(memory: URL, text: String){
+        let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+        attributeSet.title = "Recuerdo de Glory Days"
+        attributeSet.contentDescription = text
+        attributeSet.thumbnailURL = thumbnailURL(for: memory)
+        
+        let item = CSSearchableItem(uniqueIdentifier: memory.path, domainIdentifier: "com.SergioArranz", attributeSet: attributeSet)
+        
+        item.expirationDate = Date.distantFuture
+        
+        CSSearchableIndex.default().indexSearchableItems([item]) { (error) in
+            if let error = error {
+                print("Ha habido un problema al indexar \(error)")
+            } else {
+                print("Hemos podido indexar correctamente el texto: \(text)")
+            }
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -311,6 +363,29 @@ class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINav
             return CGSize(width: 0, height: 50)
         } else {
             return CGSize.zero
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let memory = self.memories[indexPath.row]
+        
+        let fileManager = FileManager.default
+        
+        do {
+            let audioName = audioURL(for: memory)
+            let transcriptionName = transcriptionURL(for: memory)
+            
+            if fileManager.fileExists(atPath: audioName.path) {
+                self.audioPlayer = try AVAudioPlayer(contentsOf: audioName)
+                self.audioPlayer?.play()
+            }
+            
+            if fileManager.fileExists(atPath: transcriptionName.path) {
+                let contents = try String(contentsOf: transcriptionName)
+                print(contents)
+            }
+        } catch {
+            print("Error al cargar el audio para reproducir")
         }
     }
 
