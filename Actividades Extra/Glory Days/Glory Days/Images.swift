@@ -11,7 +11,7 @@ import AVFoundation
 import Photos
 import Speech
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "cell"
 
 class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -27,7 +27,7 @@ class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINav
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -100,10 +100,12 @@ class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINav
         if let theImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.addNewMemory(image: theImage)
             self.loadMemories()
+            
+            dismiss(animated: true)
         }
     }
     
-    func addNewMemory(image: UIImage){
+    func addNewMemory(image: UIImage){ // Guardar imágen y miniatura en disco con redimensión en el caso de la última
         let memoryName = "memory-\(Date().timeIntervalSince1970)"
         
         let imageName = "\(memoryName).jpg"
@@ -144,6 +146,21 @@ class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINav
         return newImage
     }
     
+    func imageURL(for memory: URL) -> URL { // Recibo un objeto del array de recuerdos y añado la extensión para la imágen
+        return try! memory.appendingPathExtension("jpg")
+    }
+    
+    func thumbnailURL(for memory: URL) -> URL { // Recibo un objeto del array de recuerdos y añado la extensión para la miniatura
+        return try! memory.appendingPathExtension("thumb")
+    }
+    
+    func audioURL(for memory: URL) -> URL { // Recibo un objeto del array de recuerdos y añado la extensión para el audio
+        return try! memory.appendingPathExtension("m4a")
+    }
+    
+    func transcriptionURL(for memory: URL) -> URL { // Recibo un objeto del array de recuerdos y añado la extensión para la transcripción
+        return try! memory.appendingPathExtension("txt")
+    }
     
     /*
     // MARK: - Navigation
@@ -159,21 +176,41 @@ class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINav
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        if section == 0 {
+            return 0
+        } else {
+            return self.memories.count
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ImageCell
     
-        // Configure the cell
-    
+        let memory = self.memories[indexPath.row]
+        let memoryName = self.thumbnailURL(for: memory).path
+        let image = UIImage(contentsOfFile: memoryName)
+        cell.imageView.image = image
+        
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 0 {
+            return CGSize(width: 0, height: 50)
+        } else {
+            return CGSize.zero
+        }
     }
 
     // MARK: UICollectionViewDelegate
