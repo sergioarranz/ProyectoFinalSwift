@@ -13,15 +13,16 @@ import Speech
 
 private let reuseIdentifier = "Cell"
 
-class Images: UICollectionViewController {
+class Images: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var memories : [URL] = []
+    var memories : [URL] = [] // Array de objetos de tipo URL guardar las posiciones de los Recuerdos
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.loadMemories()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addImagePressed))
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -42,7 +43,7 @@ class Images: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func checkForGrantedPermissions() {
+    func checkForGrantedPermissions() { // Guarda cada permiso si el estado es autorizado, los junta en una variable y transiciona al VC de Terms si alguno de ellos no está en dicho estado
         let photosAuth : Bool = PHPhotoLibrary.authorizationStatus() == .authorized
         let recordingAuth : Bool = AVAudioSession.sharedInstance().recordPermission() == .granted
         let transcriptionAuth : Bool = SFSpeechRecognizer.authorizationStatus() == .authorized
@@ -57,17 +58,17 @@ class Images: UICollectionViewController {
     }
     
     func loadMemories() {
-        self.memories.removeAll()
+        self.memories.removeAll() // Vacía el array para evitar duplicidad de información
         
-        guard let files = try? FileManager.default.contentsOfDirectory(at: getDocumentsDirectory(), includingPropertiesForKeys: nil, options: []) else {
+        guard let files = try? FileManager.default.contentsOfDirectory(at: getDocumentsDirectory(), includingPropertiesForKeys: nil, options: []) else { // Recoge algún archivo del DocumentsDirectory
             return
         }
         
-        for file in files {
+        for file in files { // Busca todos los archivos contenidos en DocumentsDirectory
             
-            let fileName = file.lastPathComponent
+            let fileName = file.lastPathComponent // Recoge el nombre del archivo, no es necesario un Optional Binding puesto que devuelve un String vacio si no tiene nombre
             
-            if fileName.hasSuffix(".thumb") {
+            if fileName.hasSuffix(".thumb") { // Localiza la miniatura, quita extensión y añade al array la URL que contiene solo el nombre del archivo
                 let noExtension = fileName.replacingOccurrences(of: ".thumb", with: "")
                 
                 if let memoryPath = try? getDocumentsDirectory().appendingPathComponent(noExtension) {
@@ -77,16 +78,73 @@ class Images: UICollectionViewController {
             }
         }
         
-        collectionView?.reloadSections(IndexSet(integer: 1))
+        collectionView?.reloadSections(IndexSet(integer: 1)) // Recarga la sección en el Index 1 puesto que la sección 0 es el SearchBar
     }
     
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentsDirectory = paths[0]
+    func getDocumentsDirectory() -> URL { // Devuelve la carpeta donde se guardarán todos los archivos
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask) // Almacena en paths los archivos del directorio de documentos del usuario
+        let documentsDirectory = paths[0] // Nos quedamos solo con el primero que será el directorio donde se guardarán y cargarán las imágenes para mostrarlas en el CVController
         
         return documentsDirectory
     }
+    
+    func addImagePressed() { // Creación del selector de fotos y presentación a través del NC
+        
+        let vc = UIImagePickerController()
+        vc.modalPresentationStyle = .formSheet
+        vc.delegate = self
+        navigationController?.present(vc, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) { // Añade una imágen y recarga
+        if let theImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.addNewMemory(image: theImage)
+            self.loadMemories()
+        }
+    }
+    
+    func addNewMemory(image: UIImage){
+        let memoryName = "memory-\(Date().timeIntervalSince1970)"
+        
+        let imageName = "\(memoryName).jpg"
+        let thumbName = "\(memoryName).thumb"
+        
+        do {
+            let imagePath = try getDocumentsDirectory().appendingPathComponent(imageName)
+            
+            if let jpegData = UIImageJPEGRepresentation(image, 80) {
+                try jpegData.write(to: imagePath, options: [.atomicWrite])
+            }
+            
+            if let thumbnail = resizeImage(image: image, to: 200) {
+                let thumbPath = try getDocumentsDirectory().appendingPathComponent(thumbName)
+                
+                if let jpegData = UIImageJPEGRepresentation(thumbnail, 80) {
+                    try jpegData.write(to: thumbPath, options: [.atomicWrite])
+                }
+            }
+            
+        } catch {
+            print("Ha fallado la escritura en disco")
+        }
+        
+        
+    }
 
+    func resizeImage(image: UIImage, to width: CGFloat) -> UIImage? {
+            let scaleFactor = width / image.size.width // Disminuyo anchura
+            let height = image.size.height * scaleFactor // Disminuyo altura a partir de la escala de la anchura
+        
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: height), false, 0) // Redimensiona imágen con anchura y altura que nos llega por parámetro y con la escala manual que hemos definido anteriormente
+        image.draw(in: CGRect(x: 0, y: 0, width: width, height: height)) // Dibuja en un rectángulo la imágen original con with y height por parámetro
+        let newImage = UIGraphicsGetImageFromCurrentImageContext() // Extraemos la nueva imágen
+        
+        UIGraphicsEndImageContext() // Finaliza la edición
+        
+        return newImage
+    }
+    
+    
     /*
     // MARK: - Navigation
 
