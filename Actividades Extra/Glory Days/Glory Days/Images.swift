@@ -7,14 +7,21 @@
 //
 
 import UIKit
+import AVFoundation
+import Photos
+import Speech
 
 private let reuseIdentifier = "Cell"
 
 class Images: UICollectionViewController {
+    
+    var memories : [URL] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.loadMemories()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -23,10 +30,61 @@ class Images: UICollectionViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Recomendable hacer transiciones como esta entre ViewControllers aquí y no antes de que se cargue la vista (viewDidLoad) puesto que da problemas a nivel de compilador.
+        self.checkForGrantedPermissions()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func checkForGrantedPermissions() {
+        let photosAuth : Bool = PHPhotoLibrary.authorizationStatus() == .authorized
+        let recordingAuth : Bool = AVAudioSession.sharedInstance().recordPermission() == .granted
+        let transcriptionAuth : Bool = SFSpeechRecognizer.authorizationStatus() == .authorized
+        
+        let authorized = photosAuth && recordingAuth && transcriptionAuth
+        
+        if !authorized {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "ShowTerms") { // Instanciar Vista de términos de forma segura con optional binding
+                navigationController?.present(vc, animated: true) // Presenta el VC embebido en el NavigationController
+            }
+        }
+    }
+    
+    func loadMemories() {
+        self.memories.removeAll()
+        
+        guard let files = try? FileManager.default.contentsOfDirectory(at: getDocumentsDirectory(), includingPropertiesForKeys: nil, options: []) else {
+            return
+        }
+        
+        for file in files {
+            
+            let fileName = file.lastPathComponent
+            
+            if fileName.hasSuffix(".thumb") {
+                let noExtension = fileName.replacingOccurrences(of: ".thumb", with: "")
+                
+                if let memoryPath = try? getDocumentsDirectory().appendingPathComponent(noExtension) {
+                    memories.append(memoryPath)
+                }
+                
+            }
+        }
+        
+        collectionView?.reloadSections(IndexSet(integer: 1))
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        
+        return documentsDirectory
     }
 
     /*
