@@ -306,7 +306,7 @@
                         <outlet property="comenzar" destination="Nq3-Oz-9w3" id="dkQ-m4-Auc"/>
                         <outlet property="nickname" destination="BGQ-Fa-Rww" id="Zd0-fv-0fi"/>
                         <outlet property="nombreCompleto" destination="4Dr-Uh-eaq" id="nEe-ab-dTz"/>
-                        <segue destination="3hK-fX-c5Z" kind="presentation" identifier="transPrincipal" id="qIu-fj-DmX"/>
+                        <segue destination="g5v-vb-8cy" kind="presentation" identifier="transPrincipal" id="qIu-fj-DmX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WY7-r2-Fns" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -417,14 +417,14 @@
                         <outlet property="txtClave" destination="ZOq-7l-Rx6" id="8kf-By-AG5"/>
                         <outlet property="txtEmail" destination="kVN-Xc-TWE" id="PHl-o8-w8X"/>
                         <segue destination="NLL-fB-ylX" kind="presentation" identifier="TransRegistro2" id="k8P-jc-dql"/>
-                        <segue destination="3hK-fX-c5Z" kind="presentation" identifier="transPrincipal" id="Zuq-tc-pBe"/>
+                        <segue destination="g5v-vb-8cy" kind="presentation" identifier="transPrincipal" id="Zuq-tc-pBe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nvs-mQ-g1Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="845.60000000000002" y="803.74812593703155"/>
         </scene>
-        <!--Inicio-->
+        <!--Principal-->
         <scene sceneID="tUe-QF-rfW">
             <objects>
                 <viewController id="ymY-ZG-Q3B" customClass="VCPrincipal" customModule="Genome_Social_Network" customModuleProvider="target" sceneMemberID="viewController">
@@ -435,48 +435,109 @@
                     <view key="view" contentMode="scaleToFill" id="F2g-BD-XJQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AN-10-luz">
-                                <rect key="frame" x="166" y="318" width="43" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Volver"/>
-                                <connections>
-                                    <action selector="pulsarCancelar:" destination="ymY-ZG-Q3B" eventType="touchUpInside" id="npR-qd-wPR"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Inicio" image="home" id="ILb-Cb-nKC"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" id="7du-do-Yiw">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyh-9T-cID" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2660" y="814.54272863568224"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="W6g-yj-WKi">
+        <!--View Controller-->
+        <scene sceneID="Yo0-eK-rsi">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="3hK-fX-c5Z" sceneMemberID="viewController">
+                <viewController id="ksp-aH-Idn" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kcI-0s-N5o"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Dz-X0-eCb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yD5-ZT-ExI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="message" id="u7B-dP-C59">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c39-q7-o1p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1721" y="1576"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9qd-m0-6dQ">
+            <objects>
+                <viewController id="cJi-kw-Z03" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tnu-Mz-KAL"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cms-YX-5lI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KwZ-WQ-AkU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="profile" id="lVb-vp-AUD">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Lq-mi-sqs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2660" y="1576"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Ini-gf-v7f">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="g5v-vb-8cy" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="cj7-bW-80P">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="7bK-Hh-eJT">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="ymY-ZG-Q3B" kind="relationship" relationship="viewControllers" id="D2a-DD-D3s"/>
+                        <segue destination="ymY-ZG-Q3B" kind="relationship" relationship="viewControllers" id="G2y-bG-fQT"/>
+                        <segue destination="qA8-AK-yog" kind="relationship" relationship="viewControllers" id="sYl-Th-yAb"/>
+                        <segue destination="ksp-aH-Idn" kind="relationship" relationship="viewControllers" id="Qaz-s8-7Ob"/>
+                        <segue destination="cJi-kw-Z03" kind="relationship" relationship="viewControllers" id="UOV-Gy-d3J"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rfQ-77-88C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vgr-DQ-1Od" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1720.8" y="814.54272863568224"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="FOd-Qt-Lka">
+            <objects>
+                <viewController id="qA8-AK-yog" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gkk-h3-H9X"/>
+                        <viewControllerLayoutGuide type="bottom" id="g3p-hO-yzZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fZH-TV-7y8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="notification" id="oFJ-PC-KnH">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4bK-XS-6Eo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="874" y="1576"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="home" width="35" height="35"/>
+        <image name="home" width="30" height="30"/>
         <image name="logo_genome" width="512" height="512"/>
+        <image name="message" width="30" height="30"/>
+        <image name="notification" width="30" height="30"/>
+        <image name="profile" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZfX-Nj-U9r"/>
         <segue reference="qIu-fj-DmX"/>
+        <segue reference="ZfX-Nj-U9r"/>
     </inferredMetricsTieBreakers>
 </document>
