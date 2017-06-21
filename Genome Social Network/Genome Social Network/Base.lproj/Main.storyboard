@@ -306,7 +306,7 @@
                         <outlet property="comenzar" destination="Nq3-Oz-9w3" id="dkQ-m4-Auc"/>
                         <outlet property="nickname" destination="BGQ-Fa-Rww" id="Zd0-fv-0fi"/>
                         <outlet property="nombreCompleto" destination="4Dr-Uh-eaq" id="nEe-ab-dTz"/>
-                        <segue destination="ymY-ZG-Q3B" kind="presentation" identifier="transPrincipal" id="qIu-fj-DmX"/>
+                        <segue destination="3hK-fX-c5Z" kind="presentation" identifier="transPrincipal" id="qIu-fj-DmX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WY7-r2-Fns" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -417,14 +417,14 @@
                         <outlet property="txtClave" destination="ZOq-7l-Rx6" id="8kf-By-AG5"/>
                         <outlet property="txtEmail" destination="kVN-Xc-TWE" id="PHl-o8-w8X"/>
                         <segue destination="NLL-fB-ylX" kind="presentation" identifier="TransRegistro2" id="k8P-jc-dql"/>
-                        <segue destination="ymY-ZG-Q3B" kind="presentation" identifier="transPrincipal" id="Zuq-tc-pBe"/>
+                        <segue destination="3hK-fX-c5Z" kind="presentation" identifier="transPrincipal" id="Zuq-tc-pBe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nvs-mQ-g1Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="845.60000000000002" y="803.74812593703155"/>
         </scene>
-        <!--Principal-->
+        <!--Inicio-->
         <scene sceneID="tUe-QF-rfW">
             <objects>
                 <viewController id="ymY-ZG-Q3B" customClass="VCPrincipal" customModule="Genome_Social_Network" customModuleProvider="target" sceneMemberID="viewController">
@@ -447,17 +447,36 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Inicio" image="home" id="ILb-Cb-nKC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyh-9T-cID" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2660" y="814.54272863568224"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="W6g-yj-WKi">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="3hK-fX-c5Z" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="cj7-bW-80P">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ymY-ZG-Q3B" kind="relationship" relationship="viewControllers" id="D2a-DD-D3s"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rfQ-77-88C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1720.8" y="814.54272863568224"/>
         </scene>
     </scenes>
     <resources>
+        <image name="home" width="35" height="35"/>
         <image name="logo_genome" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zuq-tc-pBe"/>
         <segue reference="ZfX-Nj-U9r"/>
+        <segue reference="qIu-fj-DmX"/>
     </inferredMetricsTieBreakers>
 </document>
