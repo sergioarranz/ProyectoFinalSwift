@@ -1,0 +1,409 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		49730BB61EFAC66B002E327D /* VCLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49730BB51EFAC66B002E327D /* VCLogin.swift */; };
+		49730BB81EFAC893002E327D /* VCRegistro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49730BB71EFAC893002E327D /* VCRegistro.swift */; };
+		49730BBA1EFAD297002E327D /* VCRegistro2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49730BB91EFAD297002E327D /* VCRegistro2.swift */; };
+		49730BBC1EFAFA6F002E327D /* VCPrincipal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49730BBB1EFAFA6F002E327D /* VCPrincipal.swift */; };
+		49C2884A1EFAB7E400F75C72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C288491EFAB7E400F75C72 /* AppDelegate.swift */; };
+		49C2884C1EFAB7E400F75C72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C2884B1EFAB7E400F75C72 /* ViewController.swift */; };
+		49C2884F1EFAB7E400F75C72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C2884D1EFAB7E400F75C72 /* Main.storyboard */; };
+		49C288511EFAB7E400F75C72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49C288501EFAB7E400F75C72 /* Assets.xcassets */; };
+		49C288541EFAB7E400F75C72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C288521EFAB7E400F75C72 /* LaunchScreen.storyboard */; };
+		49C2885C1EFAB88B00F75C72 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49C2885B1EFAB88B00F75C72 /* GoogleService-Info.plist */; };
+		6AA7F681BAA1686139218669 /* Pods_Genome_Social_Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15EABB6E1A41213EE1B79A99 /* Pods_Genome_Social_Network.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		15EABB6E1A41213EE1B79A99 /* Pods_Genome_Social_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Genome_Social_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49730BB51EFAC66B002E327D /* VCLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCLogin.swift; sourceTree = "<group>"; };
+		49730BB71EFAC893002E327D /* VCRegistro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCRegistro.swift; sourceTree = "<group>"; };
+		49730BB91EFAD297002E327D /* VCRegistro2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCRegistro2.swift; sourceTree = "<group>"; };
+		49730BBB1EFAFA6F002E327D /* VCPrincipal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCPrincipal.swift; sourceTree = "<group>"; };
+		49C288461EFAB7E400F75C72 /* Genome Social Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Genome Social Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49C288491EFAB7E400F75C72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		49C2884B1EFAB7E400F75C72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		49C2884E1EFAB7E400F75C72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		49C288501EFAB7E400F75C72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		49C288531EFAB7E400F75C72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		49C288551EFAB7E400F75C72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49C2885B1EFAB88B00F75C72 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A2DF6D8B8829237403C0FCD0 /* Pods-Genome Social Network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Genome Social Network.release.xcconfig"; path = "Pods/Target Support Files/Pods-Genome Social Network/Pods-Genome Social Network.release.xcconfig"; sourceTree = "<group>"; };
+		DB3AF6CC9596C292BCD7FD70 /* Pods-Genome Social Network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Genome Social Network.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Genome Social Network/Pods-Genome Social Network.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		49C288431EFAB7E400F75C72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AA7F681BAA1686139218669 /* Pods_Genome_Social_Network.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4305A6E310845C45DAFAC043 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DB3AF6CC9596C292BCD7FD70 /* Pods-Genome Social Network.debug.xcconfig */,
+				A2DF6D8B8829237403C0FCD0 /* Pods-Genome Social Network.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		49C2883D1EFAB7E400F75C72 = {
+			isa = PBXGroup;
+			children = (
+				49C288481EFAB7E400F75C72 /* Genome Social Network */,
+				49C288471EFAB7E400F75C72 /* Products */,
+				4305A6E310845C45DAFAC043 /* Pods */,
+				F682746760A4F10C0FC64435 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		49C288471EFAB7E400F75C72 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49C288461EFAB7E400F75C72 /* Genome Social Network.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49C288481EFAB7E400F75C72 /* Genome Social Network */ = {
+			isa = PBXGroup;
+			children = (
+				49C288491EFAB7E400F75C72 /* AppDelegate.swift */,
+				49C2884B1EFAB7E400F75C72 /* ViewController.swift */,
+				49C2884D1EFAB7E400F75C72 /* Main.storyboard */,
+				49730BBB1EFAFA6F002E327D /* VCPrincipal.swift */,
+				49730BB51EFAC66B002E327D /* VCLogin.swift */,
+				49C288501EFAB7E400F75C72 /* Assets.xcassets */,
+				49C288521EFAB7E400F75C72 /* LaunchScreen.storyboard */,
+				49C2885B1EFAB88B00F75C72 /* GoogleService-Info.plist */,
+				49C288551EFAB7E400F75C72 /* Info.plist */,
+				49730BB71EFAC893002E327D /* VCRegistro.swift */,
+				49730BB91EFAD297002E327D /* VCRegistro2.swift */,
+			);
+			path = "Genome Social Network";
+			sourceTree = "<group>";
+		};
+		F682746760A4F10C0FC64435 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15EABB6E1A41213EE1B79A99 /* Pods_Genome_Social_Network.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		49C288451EFAB7E400F75C72 /* Genome Social Network */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49C288581EFAB7E400F75C72 /* Build configuration list for PBXNativeTarget "Genome Social Network" */;
+			buildPhases = (
+				1E269C13890BA7F0D86B7341 /* [CP] Check Pods Manifest.lock */,
+				49C288421EFAB7E400F75C72 /* Sources */,
+				49C288431EFAB7E400F75C72 /* Frameworks */,
+				49C288441EFAB7E400F75C72 /* Resources */,
+				5769E706B06EFA74743A4B74 /* [CP] Embed Pods Frameworks */,
+				49F5CFB12EF1277A10CFAFB2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Genome Social Network";
+			productName = "Genome Social Network";
+			productReference = 49C288461EFAB7E400F75C72 /* Genome Social Network.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		49C2883E1EFAB7E400F75C72 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Sergio Arranz Sobrino";
+				TargetAttributes = {
+					49C288451EFAB7E400F75C72 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 86CZ52Y2CQ;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 49C288411EFAB7E400F75C72 /* Build configuration list for PBXProject "Genome Social Network" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 49C2883D1EFAB7E400F75C72;
+			productRefGroup = 49C288471EFAB7E400F75C72 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				49C288451EFAB7E400F75C72 /* Genome Social Network */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		49C288441EFAB7E400F75C72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49C288541EFAB7E400F75C72 /* LaunchScreen.storyboard in Resources */,
+				49C2885C1EFAB88B00F75C72 /* GoogleService-Info.plist in Resources */,
+				49C288511EFAB7E400F75C72 /* Assets.xcassets in Resources */,
+				49C2884F1EFAB7E400F75C72 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E269C13890BA7F0D86B7341 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		49F5CFB12EF1277A10CFAFB2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Genome Social Network/Pods-Genome Social Network-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5769E706B06EFA74743A4B74 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Genome Social Network/Pods-Genome Social Network-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		49C288421EFAB7E400F75C72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49C2884C1EFAB7E400F75C72 /* ViewController.swift in Sources */,
+				49730BBC1EFAFA6F002E327D /* VCPrincipal.swift in Sources */,
+				49C2884A1EFAB7E400F75C72 /* AppDelegate.swift in Sources */,
+				49730BB61EFAC66B002E327D /* VCLogin.swift in Sources */,
+				49730BB81EFAC893002E327D /* VCRegistro.swift in Sources */,
+				49730BBA1EFAD297002E327D /* VCRegistro2.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		49C2884D1EFAB7E400F75C72 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49C2884E1EFAB7E400F75C72 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		49C288521EFAB7E400F75C72 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49C288531EFAB7E400F75C72 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		49C288561EFAB7E400F75C72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		49C288571EFAB7E400F75C72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		49C288591EFAB7E400F75C72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB3AF6CC9596C292BCD7FD70 /* Pods-Genome Social Network.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 86CZ52Y2CQ;
+				INFOPLIST_FILE = "Genome Social Network/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sergioarranz.Genome-Social-Network";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		49C2885A1EFAB7E400F75C72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2DF6D8B8829237403C0FCD0 /* Pods-Genome Social Network.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 86CZ52Y2CQ;
+				INFOPLIST_FILE = "Genome Social Network/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sergioarranz.Genome-Social-Network";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49C288411EFAB7E400F75C72 /* Build configuration list for PBXProject "Genome Social Network" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49C288561EFAB7E400F75C72 /* Debug */,
+				49C288571EFAB7E400F75C72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49C288581EFAB7E400F75C72 /* Build configuration list for PBXNativeTarget "Genome Social Network" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49C288591EFAB7E400F75C72 /* Debug */,
+				49C2885A1EFAB7E400F75C72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 49C2883E1EFAB7E400F75C72 /* Project object */;
+}
