@@ -25,10 +25,10 @@ class ViewController: UIViewController {
                 
                 let StoryboardInicio: UIStoryboard = UIStoryboard(name:"Main",bundle:nil)
                 
-                let VCInicio: UIViewController = StoryboardInicio.instantiateViewController(withIdentifier: "VCTabBar")
+                let VCMain: UIViewController = StoryboardInicio.instantiateViewController(withIdentifier: "VCTabBar")
                 
                 // Enviar al usuario a la vista principal
-                self.present(VCInicio, animated: true, completion: nil)
+                self.present(VCMain, animated: true, completion: nil)
             }
         })
     }

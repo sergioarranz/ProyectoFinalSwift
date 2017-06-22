@@ -14,6 +14,10 @@ class VCNuevoPost: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     
     @IBOutlet var TextViewPost: UITextView!
     
+    @IBOutlet var BarraNuevoPost: UIToolbar!
+    @IBOutlet var BarraFooterConstraint: NSLayoutConstraint!
+    var BarraFooterConstraintValorInicial:CGFloat?
+    
     // Referencia a la base de datos
     var databaseRef = FIRDatabase.database().reference()
     var UsuarioLogueado : AnyObject?
@@ -21,6 +25,7 @@ class VCNuevoPost: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.BarraNuevoPost.isHidden = true
         self.UsuarioLogueado = FIRAuth.auth()?.currentUser
         
         // Modificaciones iniciales a la TextView de los Posts
@@ -29,6 +34,58 @@ class VCNuevoPost: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         TextViewPost.textColor = UIColor.lightGray
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        enableKeyboardHideOnTap()
+        
+        self.BarraFooterConstraintValorInicial = BarraFooterConstraint.constant
+    }
+    
+    fileprivate func enableKeyboardHideOnTap(){
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(VCNuevoPost.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(VCNuevoPost.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(VCNuevoPost.hideKeyboard))
+        
+        self.view.addGestureRecognizer(tap)
+        
+    }
+    
+    func keyboardWillShow(_ notification: Notification)
+    {
+        let info = (notification as NSNotification).userInfo!
+        
+        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        
+        let duration = (notification as NSNotification).userInfo![UIKeyboardAnimationDurationUserInfoKey] as! Double
+        
+        UIView.animate(withDuration: duration, animations: {
+            
+            self.BarraFooterConstraint.constant = keyboardFrame.size.height
+            
+            self.BarraNuevoPost.isHidden = false
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    func keyboardWillHide(_ notification: Notification)
+    {
+        let duration = (notification as NSNotification).userInfo![UIKeyboardAnimationDurationUserInfoKey] as! Double
+        
+        UIView.animate(withDuration: duration, animations: {
+            
+            self.BarraFooterConstraint.constant = self.BarraFooterConstraintValorInicial!
+            
+            self.BarraNuevoPost.isHidden = true
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    func hideKeyboard(){
+        self.view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
