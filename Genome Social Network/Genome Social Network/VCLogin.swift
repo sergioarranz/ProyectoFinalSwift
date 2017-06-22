@@ -22,6 +22,7 @@ class VCLogin: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        EsconderTecladoView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,6 +34,21 @@ class VCLogin: UIViewController {
     @IBAction func pulsarCancelar(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    func EsconderTecladoView() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(VCRegistro2.dismissKeyboard))
+        
+        //Descomentar, si el tap no debe interferir o cancelar otras acciones
+        //tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        //Las vistas y toda la jerarquía renuncia a responder, para esconder el teclado
+        view.endEditing(true)
+    }
+
     
     
     @IBAction func pulsarIniciarSesion(_ sender: Any) {

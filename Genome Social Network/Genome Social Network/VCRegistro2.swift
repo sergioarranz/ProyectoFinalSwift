@@ -28,11 +28,26 @@ class VCRegistro2: UIViewController {
         self.user = FIRAuth.auth()?.currentUser
         
         // Do any additional setup after loading the view.
+        EsconderTecladoView()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func EsconderTecladoView() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(VCRegistro2.dismissKeyboard))
+        
+        //Descomentar, si el tap no debe interferir o cancelar otras acciones
+        //tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        //Las vistas y toda la jerarquía renuncia a responder, para esconder el teclado
+        view.endEditing(true)
     }
     
     @IBAction func pulsarComenzar(_ sender: Any) {

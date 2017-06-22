@@ -24,7 +24,7 @@ class VCInicio: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.IconoCarga.startAnimating()
         self.UsuarioLogueado = FIRAuth.auth()?.currentUser
         
         
@@ -51,8 +51,13 @@ class VCInicio: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 
                 print(error.localizedDescription)
             }
-            
+            self.IconoCarga.stopAnimating()
         }
+    }
+    
+    open func stopAnimating()
+    {
+        self.IconoCarga.stopAnimating()
     }
     
     override func didReceiveMemoryWarning() {

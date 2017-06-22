@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class VCRegistro: UIViewController {
+class VCRegistro: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtClave: UITextField!
@@ -24,6 +24,21 @@ class VCRegistro: UIViewController {
         
         btnRegistro.isEnabled = false
         // Do any additional setup after loading the view.
+        EsconderTecladoView()
+    }
+    
+    func EsconderTecladoView() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(VCRegistro.dismissKeyboard))
+        
+        //Descomentar, si el tap no debe interferir o cancelar otras acciones
+        //tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        //Las vistas y toda la jerarquía renuncia a responder, para esconder el teclado
+        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,6 +48,12 @@ class VCRegistro: UIViewController {
     
     @IBAction func pulsarCancelar(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    // Ocultar teclado
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
     }
     
     @IBAction func pulsarRegistro(_ sender: Any) {

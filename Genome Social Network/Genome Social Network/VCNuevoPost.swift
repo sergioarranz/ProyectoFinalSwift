@@ -9,8 +9,9 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import FirebaseStorage
 
-class VCNuevoPost: UIViewController, UITextViewDelegate, UITextFieldDelegate {
+class VCNuevoPost: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var TextViewPost: UITextView!
     
@@ -21,6 +22,8 @@ class VCNuevoPost: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     // Referencia a la base de datos
     var databaseRef = FIRDatabase.database().reference()
     var UsuarioLogueado : AnyObject?
+    
+    var seleccionarImagen = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,21 +118,158 @@ class VCNuevoPost: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     
     @IBAction func pulsarPostear(_ sender: Any) {
         
-        // Comprobamos si el usuario ha escrito algo antes de enviarlo
-        if(TextViewPost.text.characters.count>0){
+        var imagesArray = [AnyObject]()
+        
+        // Extraer las imágenes del AttributedText
+        self.TextViewPost.attributedText.enumerateAttribute(NSAttachmentAttributeName, in: NSMakeRange(0, self.TextViewPost.text.characters.count), options: []) { (value, range, true) in
             
-            // Obtenemos una llave de la base de datos y la almacenamos en un nodo "posts"
-            let key = self.databaseRef.child("posts").childByAutoId().key
+            // Comprobamos valor de retorno y añadimos al array o devolvemos error
+            if(value is NSTextAttachment)
+            {
+                let attachment = value as! NSTextAttachment
+                var image : UIImage? = nil
+                
+                // Comprobar si es una imágen
+                if(attachment.image !== nil)
+                {
+                    image = attachment.image!
+                    imagesArray.append(image!)
+                }
+                else
+                {
+                    print("La imágen no ha sido encontrada")
+                }
+            }
+        }
+        
+        let PostLength = TextViewPost.text.characters.count
+        let numImages = imagesArray.count
+        
+        // Creamos una clave única auto generada de Firebase
+        let key = self.databaseRef.child("posts").childByAutoId().key
+        
+        let storageRef = FIRStorage.storage().reference()
+        let pictureStorageRef = storageRef.child("perfiles/\(self.UsuarioLogueado!.uid)/media/\(key)")
+        
+        
+        
+        // Usuario ha introducido imágen y texto
+        if(PostLength>0 && numImages>0)
+        {
+            // Reducimos la resolución de la imágen seleccionada
+            let lowResImageData = UIImageJPEGRepresentation(imagesArray[0] as! UIImage, 0.50)
             
-            // Actualizar posts en la base de datos bajo el nodo "posts" con atributos texto y fecha
-            let actualizaciones = ["/posts/\(self.UsuarioLogueado!.uid!)/\(key)/text":TextViewPost.text,
-                                   "/posts/\(self.UsuarioLogueado!.uid!)/\(key)/fecha":"\(Date().timeIntervalSince1970)"] as [String : Any]
+            let uploadTask = pictureStorageRef.put(lowResImageData!,metadata: nil)
+            {metadata,error in
+                
+                if(error == nil)
+                {
+                    let downloadUrl = metadata!.downloadURL()
+                    
+                    let childUpdates = ["/posts/\(self.UsuarioLogueado!.uid!)/\(key)/text":self.TextViewPost.text,
+                                        "/posts/\(self.UsuarioLogueado!.uid!)/\(key)/fecha":"\(Date().timeIntervalSince1970)",
+                        "/posts/\(self.UsuarioLogueado!.uid!)/\(key)/imagen":downloadUrl!.absoluteString] as [String : Any]
+                    
+                    self.databaseRef.updateChildValues(childUpdates)
+                }
+                
+            }
             
-            // Método para actualizar el post pasándole actualizaciones
-            self.databaseRef.updateChildValues(actualizaciones)
-            
-            // Retiramos el VC una vez que el usuario publica el post
             dismiss(animated: true, completion: nil)
         }
+            // Usuario ha introducido solo texto
+        else if(PostLength>0)
+        {
+            let childUpdates = ["/posts/\(self.UsuarioLogueado!.uid!)/\(key)/text":TextViewPost.text,
+                                "/posts/\(self.UsuarioLogueado!.uid!)/\(key)/fecha":"\(Date().timeIntervalSince1970)"] as [String : Any]
+            
+            self.databaseRef.updateChildValues(childUpdates)
+            
+            dismiss(animated: true, completion: nil)
+            
+        }
+            // Usuario ha introducido solo la imágen
+        else if(numImages>0)
+        {
+            let lowResImageData = UIImageJPEGRepresentation(imagesArray[0] as! UIImage, 0.50)
+            
+            let uploadTask = pictureStorageRef.put(lowResImageData!,metadata: nil)
+            {metadata,error in
+                
+                if(error == nil)
+                {
+                    let downloadUrl = metadata!.downloadURL()
+                    
+                    let childUpdates = [
+                        "/posts/\(self.UsuarioLogueado!.uid)/\(key)/fecha":"\(Date().timeIntervalSince1970)",
+                        "/posts/\(self.UsuarioLogueado!.uid)/\(key)/imagen":downloadUrl!.absoluteString]
+                    
+                    self.databaseRef.updateChildValues(childUpdates)
+                }
+                else
+                {
+                    print(error?.localizedDescription)
+                }
+                
+            }
+            
+            dismiss(animated: true, completion: nil)
+            
+        }
+        
+    }
+    
+    
+    @IBAction func seleccionarImagenHecha(_ sender: Any) {
+        
+        // Abrir la galería de fotos
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum)
+        {
+            self.seleccionarImagen.delegate = self
+            self.seleccionarImagen.sourceType = .savedPhotosAlbum
+            self.seleccionarImagen.allowsEditing = true
+            self.present(self.seleccionarImagen, animated: true, completion: nil)
+        }
+        
+    }
+    
+    //after user has picked an image from photo gallery, this function will be called
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        
+        var attributedString = NSMutableAttributedString() // Permite cambiar atributos y añadir contenido a un String
+        
+        if(self.TextViewPost.text.characters.count>0)
+        {
+            attributedString = NSMutableAttributedString(string:self.TextViewPost.text)
+        }
+        else
+        {
+            attributedString = NSMutableAttributedString(string:"En qué estas pensando?\n")
+        }
+        
+        // Variable que nos permitirá adjuntar la imágen al texto y meterla en el attributedString
+        let textAttachment = NSTextAttachment()
+        
+        textAttachment.image = image
+        
+        // Recogemos el tamaño de la imágen original
+        let oldWidth:CGFloat = textAttachment.image!.size.width
+        
+        // Aseguramos que sea escalado a un tamaño que concuerde con el TextView
+        let scaleFactor:CGFloat = oldWidth/(TextViewPost.frame.size.width-50)
+        
+        // Establecemos la imágen del textAttachment creado anteriormente
+        textAttachment.image = UIImage(cgImage: textAttachment.image!.cgImage!, scale: scaleFactor, orientation: .up)
+        
+        let attrStringWithImage = NSAttributedString(attachment: textAttachment)
+        
+        // Añadimos nuestro attributedString que contiene la imágen al attributedString creado arriba del todo
+        attributedString.append(attrStringWithImage)
+        
+        TextViewPost.attributedText = attributedString
+        self.dismiss(animated: true, completion: nil)
+        
+        
+        
     }
 }

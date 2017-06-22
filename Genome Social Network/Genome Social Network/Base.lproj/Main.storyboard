@@ -30,30 +30,52 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienvenido a Genome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CzP-iT-oGm">
-                                <rect key="frame" x="104" y="392" width="167" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="96" y="392" width="183" height="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Genome es la nueva promesa de red social que te permitirá tener la mejor experiencia conectando con gente alrededor del mundo" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="QWw-ng-IJh">
-                                <rect key="frame" x="67" y="421" width="240" height="81"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Genome es la nueva promesa de red social que te permitirá tener la mejor experiencia conectando con gente alrededor del mundo" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="QWw-ng-IJh">
+                                <rect key="frame" x="67" y="424" width="240" height="81"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="81" id="UBL-Ce-KX9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MD5-F2-CvL">
-                                <rect key="frame" x="152" y="510" width="70" height="30"/>
-                                <state key="normal" title="Registrate"/>
+                                <rect key="frame" x="67" y="513" width="240" height="46"/>
+                                <color key="backgroundColor" red="0.63529411759999999" green="0.14117647059999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Registrate">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="dyj-U4-LKp" kind="presentation" id="BtU-UM-XoS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gk1-q1-hp4">
-                                <rect key="frame" x="142" y="564" width="90" height="30"/>
-                                <state key="normal" title="Iniciar sesión"/>
+                                <rect key="frame" x="67" y="583" width="240" height="46"/>
+                                <color key="backgroundColor" red="0.63529411759999999" green="0.14117647059999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="7nX-vr-1KP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Iniciar sesión">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="fzk-tJ-PCg" kind="presentation" id="JpL-bG-IjS"/>
                                 </connections>
@@ -61,6 +83,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="gk1-q1-hp4" firstAttribute="leading" secondItem="QWw-ng-IJh" secondAttribute="leading" id="5Yf-1R-9Dg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gk1-q1-hp4" secondAttribute="bottom" constant="38" id="5zD-cL-6l1"/>
+                            <constraint firstItem="gk1-q1-hp4" firstAttribute="leading" secondItem="MD5-F2-CvL" secondAttribute="leading" id="7Yq-6S-J1t"/>
                             <constraint firstItem="QWw-ng-IJh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="Cy6-5o-pbO"/>
                             <constraint firstItem="CzP-iT-oGm" firstAttribute="top" secondItem="qTP-4u-jOf" secondAttribute="bottom" constant="29" id="FG0-dv-9aU"/>
                             <constraint firstItem="MD5-F2-CvL" firstAttribute="centerX" secondItem="QWw-ng-IJh" secondAttribute="centerX" id="FI0-Tj-ePh"/>
@@ -68,16 +93,16 @@
                             <constraint firstItem="CzP-iT-oGm" firstAttribute="centerX" secondItem="qTP-4u-jOf" secondAttribute="centerX" id="ZTz-QZ-Ohb"/>
                             <constraint firstItem="qTP-4u-jOf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="apC-G8-9IL"/>
                             <constraint firstItem="QWw-ng-IJh" firstAttribute="top" secondItem="CzP-iT-oGm" secondAttribute="bottom" constant="8" id="egj-Fa-pRk"/>
+                            <constraint firstItem="gk1-q1-hp4" firstAttribute="trailing" secondItem="MD5-F2-CvL" secondAttribute="trailing" id="ewB-6i-EUi"/>
                             <constraint firstItem="MD5-F2-CvL" firstAttribute="top" secondItem="QWw-ng-IJh" secondAttribute="bottom" constant="8" id="ji7-po-oBp"/>
-                            <constraint firstItem="gk1-q1-hp4" firstAttribute="centerX" secondItem="MD5-F2-CvL" secondAttribute="centerX" id="sOH-Xk-8fa"/>
+                            <constraint firstItem="gk1-q1-hp4" firstAttribute="top" secondItem="MD5-F2-CvL" secondAttribute="bottom" constant="24" id="sBT-6l-onS"/>
                             <constraint firstItem="qTP-4u-jOf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="sVk-ur-kpi"/>
-                            <constraint firstItem="gk1-q1-hp4" firstAttribute="top" secondItem="MD5-F2-CvL" secondAttribute="bottom" constant="24" id="sxo-JH-zFU"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="47" y="266"/>
+            <point key="canvasLocation" x="45.600000000000001" y="265.81709145427288"/>
         </scene>
         <!--Registro-->
         <scene sceneID="CNd-77-uvS">
@@ -143,6 +168,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                 <connections>
                                     <action selector="cambiarTexto:" destination="dyj-U4-LKp" eventType="editingChanged" id="vQJ-Pw-4ag"/>
+                                    <outlet property="delegate" destination="dyj-U4-LKp" id="trr-os-JxD"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gwf-Xd-eSM">
@@ -155,6 +181,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="cambiarTexto:" destination="dyj-U4-LKp" eventType="editingChanged" id="4hU-M0-Tyj"/>
+                                    <outlet property="delegate" destination="dyj-U4-LKp" id="uJm-HT-pVs"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ip-Pk-KNv">
@@ -615,7 +642,11 @@
                                     <constraint firstAttribute="height" constant="44" id="WtT-JT-An8"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem systemItem="camera" id="aMk-Bs-Cpq"/>
+                                    <barButtonItem systemItem="camera" id="aMk-Bs-Cpq">
+                                        <connections>
+                                            <action selector="seleccionarImagenHecha:" destination="aUz-KN-ZOl" id="Boo-0j-1qf"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="K2f-2O-0Og"/>
                                     <barButtonItem title="Postear" id="1Aa-uy-gmi">
                                         <connections>
@@ -681,7 +712,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h2V-eH-mb8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="irelia" translatesAutoresizingMaskIntoConstraints="NO" id="h2V-eH-mb8">
                                 <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="3KX-Bw-qn0"/>
@@ -701,20 +732,20 @@
                                             <outletCollection property="gestureRecognizers" destination="tFP-Xm-rOE" appends="YES" id="B46-7a-aNT"/>
                                         </connections>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="kAo-za-Lu8">
-                                        <rect key="frame" x="118" y="8" width="249" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="kAo-za-Lu8">
+                                        <rect key="frame" x="231" y="8" width="136" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCe-BF-7W9">
-                                                <rect key="frame" x="0.0" y="0.0" width="51" height="30"/>
-                                                <state key="normal" title="Ajustes"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCe-BF-7W9">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <state key="normal" image="settings"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iew-ka-pQC">
-                                                <rect key="frame" x="66" y="0.0" width="80" height="30"/>
-                                                <state key="normal" title="Editar Perfil"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iew-ka-pQC">
+                                                <rect key="frame" x="53" y="0.0" width="30" height="30"/>
+                                                <state key="normal" image="editprofile"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbX-PG-1TW">
-                                                <rect key="frame" x="161" y="0.0" width="88" height="30"/>
-                                                <state key="normal" title="Desconectar"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbX-PG-1TW">
+                                                <rect key="frame" x="106" y="0.0" width="30" height="30"/>
+                                                <state key="normal" image="exit"/>
                                                 <connections>
                                                     <action selector="pulsarDesconectar:" destination="cJi-kw-Z03" eventType="touchUpInside" id="nmF-vy-W9f"/>
                                                 </connections>
@@ -1002,7 +1033,10 @@
     </scenes>
     <resources>
         <image name="addfriend" width="30" height="30"/>
+        <image name="editprofile" width="30" height="30"/>
+        <image name="exit" width="30" height="30"/>
         <image name="home" width="30" height="30"/>
+        <image name="irelia" width="400" height="150"/>
         <image name="like" width="30" height="30"/>
         <image name="logo_genome" width="512" height="512"/>
         <image name="message" width="30" height="30"/>
@@ -1011,6 +1045,7 @@
         <image name="profile" width="30" height="30"/>
         <image name="regnome" width="30" height="30"/>
         <image name="reply" width="30" height="30"/>
+        <image name="settings" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ZfX-Nj-U9r"/>

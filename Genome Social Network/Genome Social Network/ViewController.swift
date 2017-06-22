@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "wallpaper.jpg")!)
         // Login automático
         FIRAuth.auth()?.addStateDidChangeListener({ (auth, usuario) in
             
