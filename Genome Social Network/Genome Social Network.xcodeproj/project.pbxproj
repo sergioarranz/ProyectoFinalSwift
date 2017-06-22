@@ -19,6 +19,7 @@
 		49C288541EFAB7E400F75C72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C288521EFAB7E400F75C72 /* LaunchScreen.storyboard */; };
 		49C2885C1EFAB88B00F75C72 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49C2885B1EFAB88B00F75C72 /* GoogleService-Info.plist */; };
 		49FE3C151EFB2E7D0000C534 /* VCNuevoPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FE3C141EFB2E7C0000C534 /* VCNuevoPost.swift */; };
+		49FE3C171EFBFA2C0000C534 /* VCPerfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FE3C161EFBFA2C0000C534 /* VCPerfil.swift */; };
 		6AA7F681BAA1686139218669 /* Pods_Genome_Social_Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15EABB6E1A41213EE1B79A99 /* Pods_Genome_Social_Network.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		49C288551EFAB7E400F75C72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49C2885B1EFAB88B00F75C72 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		49FE3C141EFB2E7C0000C534 /* VCNuevoPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCNuevoPost.swift; sourceTree = "<group>"; };
+		49FE3C161EFBFA2C0000C534 /* VCPerfil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCPerfil.swift; sourceTree = "<group>"; };
 		A2DF6D8B8829237403C0FCD0 /* Pods-Genome Social Network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Genome Social Network.release.xcconfig"; path = "Pods/Target Support Files/Pods-Genome Social Network/Pods-Genome Social Network.release.xcconfig"; sourceTree = "<group>"; };
 		DB3AF6CC9596C292BCD7FD70 /* Pods-Genome Social Network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Genome Social Network.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Genome Social Network/Pods-Genome Social Network.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +90,7 @@
 				49C288491EFAB7E400F75C72 /* AppDelegate.swift */,
 				49C2884B1EFAB7E400F75C72 /* ViewController.swift */,
 				49C2884D1EFAB7E400F75C72 /* Main.storyboard */,
+				49FE3C161EFBFA2C0000C534 /* VCPerfil.swift */,
 				49730BBF1EFB237B002E327D /* VCInicio.swift */,
 				49730BB51EFAC66B002E327D /* VCLogin.swift */,
 				49FE3C141EFB2E7C0000C534 /* VCNuevoPost.swift */,
@@ -237,6 +240,7 @@
 				49FE3C151EFB2E7D0000C534 /* VCNuevoPost.swift in Sources */,
 				49C2884C1EFAB7E400F75C72 /* ViewController.swift in Sources */,
 				49730BC41EFB2459002E327D /* VCInicioCell.swift in Sources */,
+				49FE3C171EFBFA2C0000C534 /* VCPerfil.swift in Sources */,
 				49C2884A1EFAB7E400F75C72 /* AppDelegate.swift in Sources */,
 				49730BB61EFAC66B002E327D /* VCLogin.swift in Sources */,
 				49730BB81EFAC893002E327D /* VCRegistro.swift in Sources */,

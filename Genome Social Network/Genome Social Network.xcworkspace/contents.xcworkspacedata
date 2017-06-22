@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:VCInicioCell.swift">
-   </FileRef>
-   <FileRef
       location = "group:Genome Social Network.xcodeproj">
    </FileRef>
    <FileRef
