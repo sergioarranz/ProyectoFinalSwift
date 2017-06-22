@@ -49,6 +49,7 @@ class VCNuevoPost: UIViewController, UITextViewDelegate, UITextFieldDelegate {
             TextViewPost.textColor = UIColor.black
         }
     }
+    
     // Ocultar teclado
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -69,6 +70,7 @@ class VCNuevoPost: UIViewController, UITextViewDelegate, UITextFieldDelegate {
             
             // Método para actualizar el post pasándole actualizaciones
             self.databaseRef.updateChildValues(actualizaciones)
+            
             // Retiramos el VC una vez que el usuario publica el post
             dismiss(animated: true, completion: nil)
         }

@@ -447,7 +447,7 @@
                                         <barButtonItem key="leftBarButtonItem" image="addfriend" id="O1h-4i-rbQ"/>
                                         <barButtonItem key="rightBarButtonItem" image="post" id="6Yq-8s-IK4">
                                             <connections>
-                                                <segue destination="aUz-KN-ZOl" kind="presentation" id="JZM-IM-lHT"/>
+                                                <segue destination="aUz-KN-ZOl" kind="presentation" id="amD-uC-a4D"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -528,6 +528,12 @@
                                                 <constraint firstItem="gWm-BC-pmn" firstAttribute="top" secondItem="nc2-mP-OBP" secondAttribute="bottom" constant="-12.5" id="x8c-hG-ywC"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="FotoPerfil" destination="jjc-SW-ERZ" id="Btk-Hv-eig"/>
+                                            <outlet property="NombreCompleto" destination="1Kz-J2-tnw" id="Pgc-aH-POV"/>
+                                            <outlet property="nickname" destination="kej-j4-68O" id="ZPs-gh-9hl"/>
+                                            <outlet property="post" destination="nc2-mP-OBP" id="xRj-eN-BfA"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -535,6 +541,11 @@
                                     <outlet property="delegate" destination="ymY-ZG-Q3B" id="vc3-iD-ovS"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="qcS-7l-zqm">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.63529411764705879" green="0.14117647058823529" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -551,7 +562,8 @@
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <connections>
-                        <segue destination="aUz-KN-ZOl" kind="presentation" id="bVx-k3-2uK"/>
+                        <outlet property="IconoCarga" destination="qcS-7l-zqm" id="lzM-q9-5fe"/>
+                        <outlet property="TableViewInicio" destination="WjR-vK-fH4" id="vw9-bl-vzq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyh-9T-cID" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -623,7 +635,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PMc-Uu-aCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3445.5999999999999" y="790.25487256371821"/>
+            <point key="canvasLocation" x="3540" y="815"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Yo0-eK-rsi">
@@ -670,7 +682,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Ini-gf-v7f">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="g5v-vb-8cy" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="VCTabBar" automaticallyAdjustsScrollViewInsets="NO" id="g5v-vb-8cy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="7bK-Hh-eJT">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -725,6 +737,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="ZfX-Nj-U9r"/>
         <segue reference="qIu-fj-DmX"/>
-        <segue reference="bVx-k3-2uK"/>
     </inferredMetricsTieBreakers>
 </document>

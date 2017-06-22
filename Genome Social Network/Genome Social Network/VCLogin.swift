@@ -20,10 +20,10 @@ class VCLogin: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -37,6 +37,8 @@ class VCLogin: UIViewController {
     
     @IBAction func pulsarIniciarSesion(_ sender: Any) {
         
+        // Login de usuario con Firebase y escuchar datos en el nodo nick de perfiles en Firebase devolviéndolos como SnapShot y comprobando si existen para transicionar a un VC u otro
+        
         FIRAuth.auth()?.signIn(withEmail: self.txtEmail.text!, password: self.txtClave.text!, completion: { (user, error) in
             if(error == nil) {
                 self.rootRef.child("perfiles").child((user?.uid)!).child("nick").observe(.value, with: { (snapshot:FIRDataSnapshot) in
@@ -45,6 +47,7 @@ class VCLogin: UIViewController {
                         // El usuario no tiene nick y por tanto transicionamos al VC de creación del mismo
                         self.performSegue(withIdentifier: "TransRegistro2", sender: nil)
                     } else {
+                        // El usuario tiene nick y por tanto le llevamos a la página principal
                         self.performSegue(withIdentifier: "transPrincipal", sender: nil)
                     }
                 })

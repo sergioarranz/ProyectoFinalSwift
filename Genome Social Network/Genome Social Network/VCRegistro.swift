@@ -11,7 +11,7 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class VCRegistro: UIViewController {
-
+    
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtClave: UITextField!
     @IBOutlet weak var btnRegistro: UIBarButtonItem!
@@ -21,31 +21,31 @@ class VCRegistro: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         btnRegistro.isEnabled = false
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func pulsarCancelar(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func pulsarRegistro(_ sender: Any) {
+        // Botón de Registro deshabilitado en la acción para evitar que el usuario la mande más de una vez
         btnRegistro.isEnabled = false
+        
+        // Creación del usuario, inserción en los nodos de Firebase y login automático con transición a Registro2
         
         FIRAuth.auth()?.createUser(withEmail: txtEmail.text!, password: txtClave.text!, completion: { (user, error) in
             
-            if(error != nil) {
-                if (error as! NSError).code == 17999 {
-                    self.mensajeError.text = "Correo electrónico no válido"
-                } else {
-                    self.mensajeError.text = error?.localizedDescription
-                }
+            if(error != nil)
+            {
+                self.mensajeError.text = error?.localizedDescription
             } else {
                 self.mensajeError.text = "Registro correcto"
                 
@@ -61,6 +61,7 @@ class VCRegistro: UIViewController {
         })
     }
     
+    // Evitar que el usuario pulse el botón antes de escribir en los campos
     @IBAction func cambiarTexto(_ sender: UITextField) {
         if((txtEmail.text?.characters.count)!>0 && (txtClave.text?.characters.count)!>0){
             btnRegistro.isEnabled = true

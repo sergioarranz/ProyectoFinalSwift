@@ -7,12 +7,30 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Login automático
+        FIRAuth.auth()?.addStateDidChangeListener({ (auth, usuario) in
+            
+            if let UsuarioActual = usuario {
+                
+                print("Usuario logeado")
+                
+                // Enviar al usuario al Controlador de Inicio
+                
+                let StoryboardInicio: UIStoryboard = UIStoryboard(name:"Main",bundle:nil)
+                
+                let VCInicio: UIViewController = StoryboardInicio.instantiateViewController(withIdentifier: "VCTabBar")
+                
+                // Enviar al usuario a la vista principal
+                self.present(VCInicio, animated: true, completion: nil)
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
