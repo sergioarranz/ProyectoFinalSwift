@@ -2,13 +2,14 @@
 ## Introducción
 Genome surge como idea de algo innovador y futurista en el mundo de las redes sociales, el nombre viene relacionado con el genoma humano y he considerado que es un nombre bastante original para una app de relación entre personas como pueda ser una red social.
 
-La idea por el momento es hacer una base aprendiendo a realizar funcionalidades similares a otras redes sociales y además intentar darle un toque único como han hecho todas, en principio quiero orientarlo a entorno empresarial desde grandes multinacionales hasta pequeñas PyMES de modo que sirva de feeback para apoyarse entre sí.
+La idea por el momento es hacer una base aprendiendo a realizar funcionalidades similares a otras redes sociales y además intentar darle un toque único como hicieron todas, en principio quiero orientarlo a entorno empresarial para que usen desde grandes multinacionales hasta pequeñas PyMES y les sirve de feeback y apoyo entre sí.
 ## Contenido
-En este repositorio para el trabajo final se ha desarrollado en paralelo durante los últimos meses tanto la aplicación propuesta por el profesor como cuatro pequeñas aplicaciones extra para reforzar muchos contenidos de Swift que considero imprescindibles y para aprender muchos otros nuevos por mi cuenta.
+En este repositorio para el trabajo final se ha desarrollado en paralelo durante los últimos meses tanto la aplicación propuesta por el profesor como cuatro pequeñas aplicaciones extra para reforzar muchos contenidos de Swift que considero imprescindibles y otros nuevos por mi cuenta.
 
 Todas estas han sido desarrolladas por mi en gran mayoría gracias a los videotutoriales de [Yony Bar-Magen](www.youtube.com/channel/UCmauq_2NaJPLlH5c-sJRmeA "Yony Bar-Magen") y teniendo como referencia otros contenidos nuevos aprendidos en cursos de Swift 3. Todos los códigos están documentados correctamente y entre otras muchas cosas quiero destacar los siguientes contenidos que he aprendido y reforzado:
 
 - Uso de Arrays y Diccionarios en todas las aplicaciones
+- Acceso a información, gestión y descarga de datos de base de datos con Firebase
 - Funcionamiento y uso de hilos en los permisos que piden las aplicaciones
 - Uso avanzado de constraints y modificación de parámetros visuales tanto a través del IB como de código
 - Tablas y Colecciones: personalización, reconocimiento: (slide, gesture recognizer, etc),diferente uso y acceso a las mismas a través de delegados o View Controllers, etc
